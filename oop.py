@@ -30,10 +30,6 @@ class Fish():
 		was_eat = self.eat(some_unit)
 		if was_eat:						# Если хищник съел юнита, то удаляем съеденное из аквариума
 			aquarium.pop(i)
-		#elif was_eat == False:			# если вернулась ложь, удалить рыбу из аквариума
-			#index_fish = aquarium.index(self)
-			#aquarium.pop(index_fish)
-
 
 	@food(Seaweed)
 	def eat(self, some_unit, result = False):
@@ -41,9 +37,6 @@ class Fish():
 			self.weight = self.weight + some_unit.weight
 			self.count_unit_eaten += 1
 			return True
-		#if type(some_unit) == PredatorFish:	# 	Если рыба наткнулась на хищника,съесть рыбу и вернуть ложь
-		#	some_unit.eat(self)
-		#	del self					# походу не работает
 		
 class PredatorFish(Fish):
 	DEFAULT_PREDATOR_WEIGHT = 10			# this is a constant: weight, for predator fish
@@ -56,7 +49,7 @@ class PredatorFish(Fish):
 		i = random.randint(0, len(aquarium)-1)
 		some_fish = aquarium[i]
 		was_eat = self.eat(some_fish)
-		if was_eat:						# Если хищник съел юнита, то удаляем съеденное из аквариума
+		if was_eat:						
 			aquarium.pop(i)
 
 	@food(Fish)
@@ -65,7 +58,6 @@ class PredatorFish(Fish):
 			self.weight = self.weight + some_unit.weight
 			self.count_fish_eaten += 1
 			return True
-		#else: False
 
 class Sneil():
 
@@ -79,7 +71,7 @@ class Sneil():
 		i = random.randint(0, len(aquarium)-1)
 		some_unit = aquarium[i]
 		was_eat = self.eat(some_unit)
-		if was_eat:						# Если хищник съел юнита, то удаляем съеденное из аквариума
+		if was_eat:
 			aquarium.pop(i)
 
 	@food(Seaweed)
