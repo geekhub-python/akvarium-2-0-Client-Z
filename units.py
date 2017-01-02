@@ -34,7 +34,7 @@ class Seaweed:
 
 class Fish(Unit):
 
-	def __init__(self, weight):
+	def __init__(self, weight = 0):
 		if weight > 9 or weight < 1:
 			raise ValueError("Weight must be less then 10 and more than 0")
 		self.weight = weight
